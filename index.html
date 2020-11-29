@@ -33,6 +33,7 @@ img.style.visibility = "visible";
 }
 </script>
 <img src="happybday.gif" id="image"> -->
+<div class="viewof-index"></div>
 <div class="chart"></div>
 <p>Credit: <a href="https://observablehq.com/@abhayk1201/animated-treemap">Animated Treemap by Abhay Kumar</a></p>
 
@@ -40,6 +41,7 @@ img.style.visibility = "visible";
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 import define from "https://api.observablehq.com/@abhayk1201/animated-treemap.js?v=3";
 (new Runtime).module(define, name => {
+  if (name === "viewof index") return Inspector.into(".viewof-index")();
   if (name === "chart") return Inspector.into(".chart")();
   return ["update"].includes(name) || null;
 });
