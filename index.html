@@ -40,7 +40,7 @@ img.style.visibility = "visible";
 <script type="module">
 import {Runtime, Inspector, Library} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 import define from "https://api.observablehq.com/@abhayk1201/animated-treemap.js?v=3";
-const runtime = new Runtime(Object.assign(new Library, {width: 640}));
+const runtime = new Runtime(Object.assign(new Library, {width: 200}));
 runtime.module(define, name => {
   if (name === "viewof index") return Inspector.into(".viewof-index")();
   if (name === "chart") return Inspector.into(".chart")();
