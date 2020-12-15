@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>D3 Tutorial</title>
+<script src="https://d3js.org/d3.v3.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+// d3.select("body").append("p").text("Our First Paragraph using D3!");
+// d3.select("body").append("p").text("Our First Paragraph using D3!").style({"font-size":"40px","font-family":"arial"});
+// var p = d3.select("body").append("p").text("Our First Paragraph using D3!"); 
+// p.style({"font-size":"40px","font-family":"arial"});
+var data_values = [5,10,30,8,45,24,16,55,60];
+// var p = d3.selectAll("p").data(data_values).enter().append("p").text("hello world");
+// p.style({"font-size":"20px","font-family":"arial"});
+var svg = d3.select("body").append("svg").attr({"width":950,"height":900})
+// svg.append("circle").attr({"r":"30px", "cx":"50px", "cy":"50px"});
+// svg.append("circle").attr({"r":"50px", "fill": "red" , "cx":"50px", "cy":"50px"});
+// svg.append("rect").attr({"x":"30px", "y":"30px", "width":"30px", "height":"100px"});
+// var bars = svg.append("rect").attr({"x":"30px", "y":"30px", "width":"30px", "height":"150px"});
+// bars.attr("fill", "blue"); //fill the rect with blue
+var bars = svg.selectAll("rect").data(data_values).enter().append("rect").attr("width","25px").attr("height", function(d){ return d; });
+bars.attr("x", function(d,i){ return i*30; });
+<iframe width="100%" height="1058" frameborder="0"
+  src="https://observablehq.com/embed/@abhayk1201/animated-treemap?cell=chart"></iframe>
+
+</script>
+</body>
+</html>

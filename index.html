@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>D3 Tutorial</title>
+<title>765 DC3</title>
 <style type="text/css">
 #myText {
 text-align: center; /*align our text in center*/
 color: teal; /*set color to teal*/
 font-family: Tahoma; /*change font family*/
-font-size: 66px; /*set font size to 66 pixels*/
+font-size: 40px; /*set font size to 66 pixels*/
 }
 
 #image{
@@ -16,36 +16,156 @@ width: 100%; /* set width of image to 100% of body */
 height: 50%; /* set height of image to 50% of body */
 }
 
-.wpforms-title {
+.title {
     font-size: 40px;
 }
 
+/*.center {
+  margin: auto;
+  text-align:center;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}*/
+.viewof-index{
+  margin: auto;
+  text-align:center;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+.chart{
+  margin: auto;
+  width: 55%;
+  /*border: 3px solid green;*/
+  padding: 10px;
+}
+
+.button {
+  background-color: #008CBA; /* #4CAF50 Green */  /* #008CBA Blue  margin: 4px 2px;*/
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin:0 auto;
+  cursor: pointer;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.button1 {
+  background-color: #4CAF50;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 </style>
+</style>
+
+<!-- <style>
+      body {
+        margin: 0;
+        color: #fff;
+        font-family: 'Press Start 2P', cursive;
+        line-height: 1.8;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+      }
+      .wrapper {
+        text-align: center;
+        margin:  auto;
+      }
+      .title {
+        font-size: 40px;
+        margin-bottom: 50px;
+        letter-spacing: 12px;
+      }
+      #chart {
+        min-height: 350px;
+        margin: 10px auto 40px;
+      }
+      .left {
+        float: left;
+      }
+      .right {
+        float: right;
+      }
+
+      #newgame input {
+        color: #fff;
+        background: #000;
+        cursor: pointer;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        padding: 10px 15px;
+        font: 15px 'Press Start 2P', cursive;
+        outline: none;
+      }
+</style>  -->
 </head>
 <body>
-<!-- <p onclick="show()" id="myText">Hello Buddy! Click here!</p>
-<script type="text/javascript">
-var show = function(){
-var txt = document.getElementById("myText"),
-img = document.getElementById("image");
-txt.innerHTML = "Happy Birthday! :D";
-img.style.visibility = "visible";
-}
-</script>
-<img src="happybday.gif" id="image"> -->
-<div class="viewof-index"></div>
+<p id="myText">DC3 Design1: Zoomable Sunburst Visualization</p>
+<div class="center">
+<button class="button button1" onclick="location.href='https://abhayk1201.github.io/765_DC3/dc3_1sunburst.html'" type="button">
+         Design1</button>
+<button class="button" onclick="location.href='https://abhayk1201.github.io/765_DC3/dc3_2bubblechart.html'" type="button">
+         Design2</button>
+<button class="button" onclick="location.href='https://abhayk1201.github.io/765_DC3/dc3_3nodelink.html'" type="button">
+         Design3</button>
+<button class="button" onclick="location.href='https://abhayk1201.github.io/765_DC3/dc3_4treemap.html'" type="button">
+         Design4</button> 
+</div>
+<br>
+<br>
+<p style="text-align:center; font-size:15px">Click on a block to expand and click on central white region to go back</p>
 <div class="chart"></div>
-<p>Credit: <a href="https://observablehq.com/@abhayk1201/animated-treemap">Animated Treemap by Abhay Kumar</a></p>
+<p style="text-align:center; font-size:10px">Credit: <a href="https://observablehq.com/@abhayk1201/zoomable-sunburst">Zoomable Sunburst, </a> <a href="https://observablehq.com/@abhayk1201/sunburst">Sunburst by Abhay Kumar</a></p>
+</p>
 
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@abhayk1201/zoomable-sunburst.js?v=3";
+(new Runtime).module(define, name => {
+  if (name === "chart") return Inspector.into(".chart")();
+});
+</script>
+
+
+<div class="chart"></div>
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@abhayk1201/sunburst.js?v=3";
+(new Runtime).module(define, name => {
+  if (name === "chart") return Inspector.into(".chart")();
+});
+</script>
+<!-- <div class="viewof-index"></div>
+<div class="chart"></div>
+<p style="text-align:center; font-size:10px">Credit: <a href="https://observablehq.com/@abhayk1201/animated-treemap">Animated Treemap by Abhay Kumar</a></p>
 <script type="module">
 import {Runtime, Inspector, Library} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 import define from "https://api.observablehq.com/@abhayk1201/animated-treemap.js?v=3";
-const runtime = new Runtime(Object.assign(new Library, {width: 200}));
-runtime.module(define, name => {
+// const runtime = new Runtime(Object.assign(new Library, {width: 200}));
+(new Runtime).module(define, name => {
   if (name === "viewof index") return Inspector.into(".viewof-index")();
   if (name === "chart") return Inspector.into(".chart")();
   return ["update"].includes(name) || null;
 });
-</script>
+</script> -->
 </body>
 </html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>D3 Tutorial</title>
+<style type="text/css">
+#myText {
+text-align: center; /*align our text in center*/
+color: teal; /*set color to teal*/
+font-family: Tahoma; /*change font family*/
+font-size: 40px; /*set font size to 66 pixels*/
+}
+
+#image{
+visibility: hidden;/* hide the image */
+width: 100%; /* set width of image to 100% of body */
+height: 50%; /* set height of image to 50% of body */
+}
+
+.title {
+    font-size: 40px;
+}
+
+/*.center {
+  margin: auto;
+  text-align:center;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}*/
+.viewof-index{
+  margin: auto;
+  text-align:center;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+.chart{
+  margin: auto;
+  width: 50%;
+  /*border: 3px solid green;*/
+  padding: 10px;
+}
+
+</style>
+
+<!-- <style>
+      body {
+        margin: 0;
+        color: #fff;
+        font-family: 'Press Start 2P', cursive;
+        line-height: 1.8;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+      }
+      .wrapper {
+        text-align: center;
+        margin:  auto;
+      }
+      .title {
+        font-size: 40px;
+        margin-bottom: 50px;
+        letter-spacing: 12px;
+      }
+      #chart {
+        min-height: 350px;
+        margin: 10px auto 40px;
+      }
+      .left {
+        float: left;
+      }
+      .right {
+        float: right;
+      }
+
+      #newgame input {
+        color: #fff;
+        background: #000;
+        cursor: pointer;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        padding: 10px 15px;
+        font: 15px 'Press Start 2P', cursive;
+        outline: none;
+      }
+</style>  -->
+</head>
+<body>
+<p id="myText">DC3 Visualization</p>
+<!-- <script type="text/javascript">
+var show = function(){
+var txt = document.getElementById("myText"),
+img = document.getElementById("image");
+txt.innerHTML = "Happy Birthday! :D";
+img.style.visibility = "visible";
+}
+</script>
+<img src="happybday.gif" id="image"> -->
+<!-- <div class="viewof-index" class="center"></div>  -->
+<div class="viewof-index"></div>
+<!-- style= "height: 20px; width: 50%;" -->
+<div class="chart"></div>
+<!-- <div class="chart" style= "width: 50%;text-align: center;"></div> -->
+	<!-- <canvas width="1400" height="700" style="width: 700px;"></canvas> -->
+
+<p style="text-align:center; font-size:10px">Credit: <a href="https://observablehq.com/@abhayk1201/animated-treemap">Animated Treemap by Abhay Kumar</a></p>
+
+<script type="module">
+import {Runtime, Inspector, Library} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@abhayk1201/animated-treemap.js?v=3";
+// const runtime = new Runtime(Object.assign(new Library, {width: 200}));
+(new Runtime).module(define, name => {
+  if (name === "viewof index") return Inspector.into(".viewof-index")();
+  if (name === "chart") return Inspector.into(".chart")();
+  return ["update"].includes(name) || null;
+});
+</script>
+</body>
+</html>
